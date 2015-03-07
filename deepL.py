@@ -7,15 +7,14 @@ from scipy import misc
 
 
 groundTruth = np.zeros([469, 1])
-images = np.zeros([469,10000])
-
+#images = np.zeros([469,10000])
+images = []
 os.chdir('Pictures')
 os.chdir('chagall')
 count = 0
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
-	print(image.shape)
-	print(image.dtype)
+	print image.shape
 	#images = np.concatenate(images, misc.imread(filename))
 	groundTruth.shape
 	groundTruth[count] = 1
@@ -29,9 +28,15 @@ for filename in os.listdir(os.getcwd()):
 groundTruth = groundTruth.astype(int)
 print count
 
-numpy.random.shuffle(images)
-trX, teX = images[:80,:], images[80:,:]
-trY, teY = groundTruth[:80,:], groundTruth[80:,:]
+from random import shuffle
+#numpy.random.shuffle(images)
+#trX, teX = images[:80,:], images[80:,:]
+#trY, teY = groundTruth[:80,:], groundTruth[80:,:]
+shuffle(images)
+trX = images
+teX = images
+trY = groundTruth
+teY = groundTruth
 import theano
 from theano import tensor as T
 
