@@ -6,40 +6,35 @@ from scipy import misc
 
 
 
-groundTruth = np.zeros([469, 1])
-#images = np.zeros([469,10000])
-images = []
+groundTruth = np.zeros([1, 496])
+images = np.zeros([1382400,496])
 os.chdir('Pictures')
 os.chdir('chagall')
 count = 0
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
-	print image.shape
-	image = np.reshape(image, [-1,1])
-	print image.shape
-	groundTruth.shape
-	groundTruth[count] = 1
+	images[:,count] = np.reshape(image, [1,-1])
+	groundTruth[0,count] = 1
 	count = count + 1
 os.chdir('../kand')
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
-	image = np.reshape(image, [-1,1])
-	print image.shape
-	groundTruth.shape
-	groundTruth[count] = 2
+	images[:,count] = np.reshape(image, [1,-1])
+	groundTruth[0,count] = 2
 	count = count + 1
 groundTruth = groundTruth.astype(int)
 print count
+print groundTruth.shape
 
 from random import shuffle
-#numpy.random.shuffle(images)
-#trX, teX = images[:80,:], images[80:,:]
-#trY, teY = groundTruth[:80,:], groundTruth[80:,:]
-shuffle(images)
 trX = images
 teX = images
 trY = groundTruth
 teY = groundTruth
+print trX.shape
+print teX.shape
+print trY.shape
+print teY.shape
 import theano
 from theano import tensor as T
 
