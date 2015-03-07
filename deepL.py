@@ -15,13 +15,16 @@ count = 0
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
 	print image.shape
-	#images = np.concatenate(images, misc.imread(filename))
+	image = np.reshape(image, [-1,1])
+	print image.shape
 	groundTruth.shape
 	groundTruth[count] = 1
 	count = count + 1
 os.chdir('../kand')
 for filename in os.listdir(os.getcwd()):
-	#images = np.concatenate(images, misc.imread(filename))
+	image = misc.imread(filename)
+	image = np.reshape(image, [-1,1])
+	print image.shape
 	groundTruth.shape
 	groundTruth[count] = 2
 	count = count + 1
