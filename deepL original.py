@@ -6,23 +6,23 @@ from scipy import misc
 
 
 
-groundTruth = np.zeros([496, 1])
+groundTruth = np.zeros([1, 496])
 images = np.zeros([496,1382400])
 os.chdir('Pictures')
 os.chdir('chagall')
 count = 0
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
-	image = np.reshape(image, [-1,1]).transpose()
-	images[count,:] = image.astype(np.float64) / 255
-	groundTruth[count,0] = 1
+	image = np.reshape(image, [1,-1])
+	images[:,count] = image.astype(np.float64) / 255
+	groundTruth[0,count] = 1
 	count = count + 1
 os.chdir('../kand')
 for filename in os.listdir(os.getcwd()):
 	image = misc.imread(filename)
-	image = np.reshape(image, [-1,1]).transpose()
-	images[count,:] = image.astype(np.float64) / 255
-	groundTruth[count,0] = 2
+	image = np.reshape(image, [1,-1])
+	images[:,count] = image.astype(np.float64) / 255
+	groundTruth[0,count] = 2
 	count = count + 1
 groundTruth = groundTruth.astype(int)
 print count
