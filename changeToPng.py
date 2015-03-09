@@ -21,3 +21,17 @@ for filename in os.listdir(os.getcwd()):
 	image = Image.open(filename)
 	(name, extension) = os.path.splitext(filename)
 	image.save(name + '.png')
+
+os.chdir('../klimt')
+for filename in os.listdir(os.getcwd()):
+	print filename
+	image = Image.open(filename)
+	(name, extension) = os.path.splitext(filename)
+	image.save(name + '.png')
+
+os.chdir('../mond')
+for filename in os.listdir(os.getcwd()):
+	print filename
+	image = Image.open(filename)
+	(name, extension) = os.path.splitext(filename)
+	image.save(name + '.png')
