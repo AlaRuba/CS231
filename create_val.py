@@ -61,10 +61,10 @@ for filename in os.listdir(os.getcwd()):
 	manet_x.append("/Users/alaruba/CS231/Pictures/manet/"+filename +"\n")
 	manet_y.append("2" + "\n")
 random.shuffle(manet_x)
-manet_train_x = manet_x[0:30]
-manet_train_y = manet_y[0:30]
-manet_test_x = manet_x[31:51]
-manet_test_y = manet_y[31:51]
+manet_train_x = manet_x[0:29]
+manet_train_y = manet_y[0:29]
+manet_test_x = manet_x[30:50]
+manet_test_y = manet_y[30:50]
 train_x.extend(manet_train_x)
 test_x.extend(manet_test_x)
 train_y.extend(manet_train_y)
