@@ -6,7 +6,16 @@ from scipy import misc
 from PIL import Image
 
 os.chdir('Pictures')
-os.chdir('chagall')
+
+os.chdir('braque')
+count = 0
+for filename in os.listdir(os.getcwd()):
+	print filename
+	image = Image.open(filename)
+	(name, extension) = os.path.splitext(filename)
+	image.save(name + '.png')
+
+os.chdir('../chagall')
 count = 0
 for filename in os.listdir(os.getcwd()):
 	print filename
