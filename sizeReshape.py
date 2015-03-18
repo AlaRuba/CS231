@@ -8,21 +8,18 @@ from PIL import Image
 
 
 
-
-groundTruth = np.zeros([469, 1])
-#images = np.zeros([469,10000])
 images = []
-os.chdir('Pictures')
-os.chdir('braque')
-count = 0
+os.chdir('Pictures/images/train')
+print "train"
 for filename in os.listdir(os.getcwd()):
 	img = Image.open(filename)
 	print filename
-	img = img.resize((600,768), PIL.Image.ANTIALIAS)
+	img = img.resize((256,256), PIL.Image.ANTIALIAS)
 	img.save(filename)
-os.chdir('../klimt')
+os.chdir('../val')
+print "val"
 for filename in os.listdir(os.getcwd()):
-	img = Image.open(filename)
 	print filename
-	img = img.resize((600,768), PIL.Image.ANTIALIAS)
+	img = Image.open(filename)
+	img = img.resize((256,256), PIL.Image.ANTIALIAS)
 	img.save(filename)
